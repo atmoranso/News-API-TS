@@ -7,7 +7,8 @@ type Source = {
     language: string;
     country: string;
 };
-type Article = {
+
+export type Article = {
     source: {
         id: string;
         name: string;
