@@ -1,4 +1,4 @@
-type Source = {
+export type Source = {
     id: string;
     name: string;
     description: string;
@@ -7,7 +7,7 @@ type Source = {
     language: string;
     country: string;
 };
-
+export type Callback<T> = (data?: T) => void;
 export type Article = {
     source: {
         id: string;
@@ -21,11 +21,11 @@ export type Article = {
     publishedAt: string;
     content: string;
 };
-export interface Sources {
+export interface SourcesData {
     status: string;
     sources: Source[];
 }
-export interface News {
+export interface NewsData {
     status: string;
     totalResults: number;
     articles: Article[];

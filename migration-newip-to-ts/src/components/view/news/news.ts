@@ -6,7 +6,7 @@ class News {
         if (element === null) throw new Error(`Can't find ${selector} selector`);
         else return element;
     }
-    draw(data: Article[]) {
+    draw(data: Article[]): void {
         const news: Article[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
