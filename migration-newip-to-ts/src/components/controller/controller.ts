@@ -1,7 +1,10 @@
 import AppLoader from './appLoader';
+import { Callback } from '../types/index';
+import { SourcesData } from '../types/index';
+import { NewsData } from '../types/index';
 
 class AppController extends AppLoader {
-    getSources(callback) {
+    getSources(callback: Callback<SourcesData | NewsData>) {
         super.getResp(
             {
                 endpoint: 'sources',
@@ -10,13 +13,15 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    getNews(e: Event, callback: Callback<SourcesData | NewsData>) {
+        let target = e.target as Element;
+        const newsContainer = e.currentTarget as Element;
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
                 const sourceId = target.getAttribute('data-source-id');
+                if (sourceId === null) throw new Error("Can't find attribute data-source-id");
+
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
@@ -31,7 +36,9 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            if (target.parentNode === null) throw new Error("can't find parent node O_O");
+
+            target = target.parentNode as Element;
         }
     }
 }
