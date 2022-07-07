@@ -1,12 +1,12 @@
 import './news.css';
 import { Article } from '../../types/index';
 class News {
-    findBySelector<T extends Element>(parentElem: Element | Document, selector: string): T {
+    private findBySelector<T extends Element>(parentElem: Element | Document, selector: string): T {
         const element: T | null = parentElem.querySelector(selector);
         if (element === null) throw new Error(`Can't find ${selector} selector`);
         else return element;
     }
-    draw(data: Article[]): void {
+    public draw(data: Article[]): void {
         const news: Article[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();

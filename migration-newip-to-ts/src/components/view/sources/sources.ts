@@ -2,12 +2,12 @@ import './sources.css';
 import { Source } from '../../types/index';
 
 class Sources {
-    findBySelector<T extends Element>(parentElem: Element | Document, selector: string): T {
+    private findBySelector<T extends Element>(parentElem: Element | Document, selector: string): T {
         const element: T | null = parentElem.querySelector(selector);
         if (element === null) throw new Error(`Can't find ${selector} selector`);
         else return element;
     }
-    draw(data: Source[]): void {
+    public draw(data: Source[]): void {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = this.findBySelector<HTMLTemplateElement>(document, '#sourceItemTemp');
 

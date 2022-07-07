@@ -4,21 +4,21 @@ import { SourcesData } from '../types/index';
 import { NewsData } from '../types/index';
 
 export class AppView {
-    news: News;
-    sources: Sources;
+    private _news: News;
+    private _sources: Sources;
     constructor() {
-        this.news = new News();
-        this.sources = new Sources();
+        this._news = new News();
+        this._sources = new Sources();
     }
 
     drawNews(data: NewsData) {
         const values = data?.articles ? data?.articles : [];
-        this.news.draw(values);
+        this._news.draw(values);
     }
 
     drawSources(data: SourcesData) {
         const values = data?.sources ? data?.sources : [];
-        this.sources.draw(values);
+        this._sources.draw(values);
     }
 }
 
