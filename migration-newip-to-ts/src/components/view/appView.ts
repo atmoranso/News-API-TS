@@ -20,6 +20,23 @@ export class AppView {
         const values = data?.sources ? data?.sources : [];
         this._sources.draw(values);
     }
+    resetSources(sourcesBlock?: Element | null) {
+        if (!sourcesBlock) {
+            sourcesBlock = document.querySelector('.sources');
+            if (sourcesBlock === null) throw new Error("Cant't find .sources selector");
+        }
+        this._sources.reset(sourcesBlock);
+    }
+    toggleSource(e: Event) {
+        this._sources.toggle(e);
+    }
+    applyChosenSources(sourcesBlock?: Element | null) {
+        if (!sourcesBlock) {
+            sourcesBlock = document.querySelector('.sources');
+            if (sourcesBlock === null) throw new Error("Cant't find .sources selector");
+        }
+        this._sources.apply(sourcesBlock);
+    }
 }
 
 export default AppView;

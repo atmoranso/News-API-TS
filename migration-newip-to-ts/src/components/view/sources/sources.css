@@ -20,6 +20,7 @@
     cursor: pointer;
 }
 
+.source__item.visible,
 .source__item:hover,
 .source__item:focus {
     border-color: #3fcc59;
@@ -31,4 +32,25 @@
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;
+}
+
+.choose-sources {
+    background: none;
+    border: 2px solid #b8b91d;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+    color: #b8b91d;
+    transition: 0.25s;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.choose-sources:hover,
+.choose-sources:focus {
+    border-color: #3fcc59;
+    color: #69db7e;
+    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    transform: translateY(-0.25em);
 }

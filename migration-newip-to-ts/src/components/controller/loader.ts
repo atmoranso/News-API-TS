@@ -1,6 +1,4 @@
-import { Callback } from '../types/index';
-import { NewsData } from '../types/index';
-import { SourcesData } from '../types/index';
+import { Callback, NewsData, SourcesData } from '../types/index';
 
 class Loader {
     baseLink: string;

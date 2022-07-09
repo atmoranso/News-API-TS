@@ -20,7 +20,25 @@ class Sources {
             fragment.append(sourceClone);
         });
 
+        this.findBySelector<Element>(document, '.sources').innerHTML = '';
         this.findBySelector<Element>(document, '.sources').append(fragment);
+    }
+    public toggle(e: Event): void {
+        (e.target as Element)?.closest('.source__item')?.classList.toggle('visible');
+    }
+    public apply(sourcesBlock: Element): void {
+        const sources = sourcesBlock.querySelectorAll('.source__item');
+        for (const source of sources) {
+            if (source.classList.contains('visible')) source.classList.remove('visible');
+            else (source as HTMLElement).style.display = 'none';
+        }
+    }
+    reset(sourcesBlock: Element): void {
+        const sources = sourcesBlock.querySelectorAll('.source__item');
+        for (const source of sources) {
+            if ((source as HTMLElement).style.display === 'block') source.classList.add('visible');
+            else (source as HTMLElement).style.display = 'block';
+        }
     }
 }
 

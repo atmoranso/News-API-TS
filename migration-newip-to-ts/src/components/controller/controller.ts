@@ -1,9 +1,30 @@
 import AppLoader from './appLoader';
-import { Callback } from '../types/index';
-import { SourcesData } from '../types/index';
-import { NewsData } from '../types/index';
+import { Callback, SourcesData, NewsData } from '../types/index';
 
 class AppController extends AppLoader {
+    chooseSources(
+        e: Event,
+        resetSources: Callback<Element>,
+        callback1: (e: Event) => void,
+        callback2: Callback<Element>,
+        sourceClickHandler: (e: Event) => void
+    ) {
+        const chooseButton: Element = e.target as Element;
+        const sourcesBlock = document.querySelector('.sources');
+        if (sourcesBlock === null) throw new Error("Can't find .sources selector");
+
+        if (chooseButton.innerHTML === 'Choose sources') {
+            sourcesBlock.removeEventListener('click', sourceClickHandler);
+            resetSources(sourcesBlock);
+            sourcesBlock.addEventListener('click', callback1);
+            chooseButton.innerHTML = 'Save';
+        } else {
+            sourcesBlock.removeEventListener('click', callback1);
+            callback2(sourcesBlock);
+            sourcesBlock.addEventListener('click', sourceClickHandler);
+            chooseButton.innerHTML = 'Choose sources';
+        }
+    }
     getSources(callback: Callback<SourcesData | NewsData>) {
         super.getResp(
             {
