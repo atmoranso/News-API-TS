@@ -3,7 +3,9 @@ import { Callback, SourcesData, NewsData } from '../types/index';
 
 class AppController extends AppLoader {
     menuHandler(callback: Callback<Element>) {
-        callback();
+        if (getComputedStyle(document.querySelector('.burger') as HTMLElement).display !== 'none') {
+            callback();
+        }
     }
     chooseSources(
         e: Event,
