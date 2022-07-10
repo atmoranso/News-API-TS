@@ -4,6 +4,10 @@ body {
     font-family: sans-serif;
 }
 
+body.open {
+    overflow: hidden;
+}
+
 header {
     padding: 10px 30px;
 }
@@ -13,23 +17,99 @@ header h1 {
     font-weight: 800;
 }
 
+.burger {
+    position: absolute;
+    display: none;
+    right: 20px;
+    top: 60px;
+    width: 50px;
+    height: 32px;
+    z-index: 100;
+}
+
 footer {
     height: 100px;
+    margin-top: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 footer .copyright {
     font-size: 14px;
     color: #333;
     text-align: center;
 }
+
 footer .copyright a {
     color: #444;
 }
+
 footer .copyright a:hover {
     color: #555;
 }
+
 footer .copyright:before {
     content: '©';
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer__logo {
+    width: 64px;
+    height: 64px;
+}
+
+svg {
+    fill: #ffffff;
+}
+
+svg:hover {
+    fill: #afacac
+}
+
+.footer__year {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer__github {
+    width: 120px;
+}
+
+@media (max-width: 640px) {
+    .burger {
+        display: block;
+        transition: 0.3s;
+    }
+
+    .burger.open {
+        transform: rotate(90deg);
+        display: block;
+    }
+
+    nav {
+        box-sizing: border-box;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: -110%;
+        padding: 42px 10px;
+        background-color: #17181c;
+        z-index: 50;
+        overflow-x: hidden;
+        transition: 0.3s;
+    }
+
+    nav.open {
+        left: 0;
+
+    }
 }

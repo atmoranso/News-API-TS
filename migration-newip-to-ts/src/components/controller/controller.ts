@@ -2,6 +2,9 @@ import AppLoader from './appLoader';
 import { Callback, SourcesData, NewsData } from '../types/index';
 
 class AppController extends AppLoader {
+    menuHandler(callback: Callback<Element>) {
+        callback();
+    }
     chooseSources(
         e: Event,
         resetSources: Callback<Element>,
