@@ -25,7 +25,7 @@ class News {
             if (idx % 2) this.findBySelector<Element>(newsClone, '.news__item').classList.add('alt');
 
             this.findBySelector<HTMLElement>(newsClone, '.news__meta-photo').style.backgroundImage = `url(${
-                item.urlToImage || 'img/news_placeholder.jpg'
+                item.urlToImage || 'assets/jpg/news_placeholder.jpg'
             })`;
 
             this.findBySelector<HTMLElement>(newsClone, '.news__meta-author').textContent =
