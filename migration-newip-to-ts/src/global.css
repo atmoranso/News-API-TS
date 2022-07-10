@@ -62,8 +62,7 @@ footer .copyright:before {
 }
 
 .footer__logo {
-    width: 64px;
-    height: 64px;
+    width: 120px;
 }
 
 svg {
@@ -80,7 +79,9 @@ svg:hover {
 }
 
 .footer__github {
-    width: 120px;
+
+    width: 64px;
+    height: 64px;
 }
 
 @media (max-width: 640px) {
