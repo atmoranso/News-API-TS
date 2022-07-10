@@ -38,7 +38,7 @@ class App {
     start() {
         document
             ?.querySelector('.burger')
-            ?.addEventListener('click', (e: Event) => this.controller.menuHandler(() => this.view.drawMenu()));
+            ?.addEventListener('click', () => this.controller.menuHandler(() => this.view.drawMenu()));
         document?.querySelector('.sources')?.addEventListener('click', this.sourceClickHandler);
         this.controller.getSources((data) => this.view.drawSources(data as SourcesData));
         document?.querySelector('.choose-sources')?.addEventListener('click', this.chooseButtonClickHandler);
