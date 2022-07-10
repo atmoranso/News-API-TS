@@ -13,6 +13,7 @@ header {
 }
 
 header h1 {
+    margin-right: 40px;
     font-size: 40px;
     font-weight: 800;
 }
