@@ -10,3 +10,8 @@ https://atmoranso.github.io/News-API-TS/
 ### Instruction:
 Just click on the desired source.  
 If you wanna see only preferred sources, click `choose sources` button, select ones and click `save`.
+
+### Used technologies and tools:
+ - **TypeScript**
+ - **Webpack 5.0**
+ - **ESLint**
